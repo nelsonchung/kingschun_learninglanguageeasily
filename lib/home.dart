@@ -15,26 +15,10 @@
  * Author: Nelson Chung
  * Creation Date: September 12, 2023
  */
-
 import 'package:flutter/material.dart';
-import 'home.dart';
+import 'chat.dart';
 
-void main() => runApp(MyApp());
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter App',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: MainScreen(),
-    );
-  }
-}
-
-class MainScreen extends StatelessWidget {
+class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,24 +28,21 @@ class MainScreen extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/main_background.png'),
+                image: AssetImage('assets/home_background.png'),
                 fit: BoxFit.fill,
               ),
             ),
           ),
           Align(
-            alignment: Alignment.bottomRight,
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => HomePage()),
-                  );
-                },
-                child: Text('Start'),
-              ),
+            alignment: Alignment(0, 0.7),
+            child: FloatingActionButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ChatPage()),
+                );
+              },
+              child: Icon(Icons.add),
             ),
           ),
         ],
